@@ -15,47 +15,77 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
         
         static void Main(string[] args)
         {
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+        }
+        
+        //m1
+        static void RandomizeCharacter()
+        {
             Character player1 = new Archer("PewPew Pointystick");
             Character player2 = new Orc("Smashie McStabface");
             Character player3 = new Wizard("Bearddress Zappyfingers");
 
+            Random combatant1 = new Random();
+            Random combatant2 = new Random();
+            Character attacker = null; //declares attacker character so it can be referenced outside of  if statements
+            Character defender = null; //declares defender character so it can be referenced outside of  if statements
 
-             Random combatant1 = new Random(1, 4);
-             Random combatant2 = new Random(1, 4);
-
-            if (combatant1 =  1)
+            if (combatant1.Next(1, 4) == 1)
             {
-                Character attacker = player1;
+                //Character attacker = player1;   // was the way i had this coded  prior to trying to access attacker for  check outside of  if statement
+                attacker = player1;
             }
 
-            if (combatant1 = 2)
+            if (combatant1.Next(1, 4) == 2)
             {
-                Character attacker = player2;
+                attacker = player2;
             }
 
-            if (combatant1 = 3)
+            if (combatant1.Next(1, 4) == 3)
             {
-                Character attacker = player3;
+                attacker = player3;
             }
 
-            if (combatant2 = 1)
+            if (combatant2.Next(1, 4) == 1)
             {
-                Character defender = player1;
+                //Character defender = player1;   // was the way i had this coded  prior totrying to access  defender for  check outside of  if statement
+                defender = player1;
             }
 
-            if (combatant2 = 2)
+            if (combatant2.Next(1, 4) == 2)
             {
-                Character defender = player2;
+                defender = player2;
             }
 
-            if (combatant2 = 3)
+            if (combatant2.Next(1, 4) == 3)
             {
-                Character defender = player3;
+                defender = player3;
             }
 
 
-
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"\n {attacker} is the attacker this  round");
+            Console.WriteLine($"\n {defender} is the defender this  round");
+            
         }
+        
+        //m2
+
+
+
+
+
+
+
     }
 
   
