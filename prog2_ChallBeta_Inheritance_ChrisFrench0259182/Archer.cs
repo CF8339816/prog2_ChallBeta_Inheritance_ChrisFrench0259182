@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
 {
-    internal class Archer
-    {
+    internal class Archer : Character
 
+    {
+        public Archer(string name) : base(name, 80, 12, 8, 15) 
+        {
+        
+        }
 
 
     }
