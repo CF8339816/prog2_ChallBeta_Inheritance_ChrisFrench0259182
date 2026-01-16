@@ -11,6 +11,5 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
 
 
 
-
     }
 }
