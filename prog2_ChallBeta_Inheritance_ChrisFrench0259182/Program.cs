@@ -122,6 +122,10 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
                 Console.ReadKey(true);
             }
             //Reflect(Character target);
+            else
+            {
+                base.TakeDamage(damage);
+            }
 
         }
 
@@ -186,7 +190,7 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
             //Random combatant2 = new Random();
 
 
-            List<Character> roster = new List<Character>
+            List<Character> arenaRamp = new List<Character>
             {
                 new Archer("PewPew Pointystick"),
                 new Orc("Smashie McStabface"),
@@ -194,50 +198,57 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
             };
 
 
+            //if (combatant1.Next(1, 4) == 1)
+            //{
+            //    //Character attacker = player1;   // was the way i had this coded  prior to trying to access attacker for  check outside of  if statement
+            //    attacker = player1;
+            //}
 
+            //if (combatant1.Next(1, 4) == 2)
+            //{
+            //    attacker = player2;
+            //}
 
+            //if (combatant1.Next(1, 4) == 3)
+            //{
+            //    attacker = player3;
+            //}
+            //Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //Console.WriteLine($"\n {attacker._name} is the attacker this  round");
+            //Console.ReadKey(true);
 
-            if (combatant1.Next(1, 4) == 1)
-            {
-                //Character attacker = player1;   // was the way i had this coded  prior to trying to access attacker for  check outside of  if statement
-                attacker = player1;
-            }
+            //if (combatant2.Next(1, 4) == 1)
+            //{
+            //    //Character defender = player1;   // was the way i had this coded  prior totrying to access  defender for  check outside of  if statement
+            //    defender = player1;
+            //}
 
-            if (combatant1.Next(1, 4) == 2)
-            {
-                attacker = player2;
-            }
+            //if (combatant2.Next(1, 4) == 2)
+            //{
+            //    defender = player2;
+            //}
 
-            if (combatant1.Next(1, 4) == 3)
-            {
-                attacker = player3;
-            }
+            //if (combatant2.Next(1, 4) == 3)
+            //{
+            //    defender = player3;
+            //}
+
+            
+            int roll1 = masterRando.Next(0, arenaRamp.Count);//Roll to choose attacker form list
+            attacker = arenaRamp[roll1];
+
+       
+            int roll2 = masterRando.Next(0, arenaRamp.Count);//Roll to choose defender frrom list
+            defender = arenaRamp[roll2];
+
+            
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"\n {attacker._name} is the attacker this  round");
             Console.ReadKey(true);
-
-            if (combatant2.Next(1, 4) == 1)
-            {
-                //Character defender = player1;   // was the way i had this coded  prior totrying to access  defender for  check outside of  if statement
-                defender = player1;
-            }
-
-            if (combatant2.Next(1, 4) == 2)
-            {
-                defender = player2;
-            }
-
-            if (combatant2.Next(1, 4) == 3)
-            {
-                defender = player3;
-            }
-
-
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Console.WriteLine($"\n {attacker._name} is the attacker this  round");
-            //Console.ReadKey(true);
             Console.WriteLine($"\n {defender._name} is the defender this  round");
             Console.ReadKey(true);
+            
+            Console.ResetColor();
 
         }
 
