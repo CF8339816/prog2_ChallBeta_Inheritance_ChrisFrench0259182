@@ -8,132 +8,6 @@ using System.Xml.Linq;
 
 namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
 {
-    internal class Program
-    {
-
-        //static Random combatant1 = new Random(1, 4);
-        //static Random combatant2 = new Random(1, 4);
-        static Character attacker = null; //declares attacker character so it can be referenced outside of  if statements
-        static Character defender = null; //declares defender character so it can be referenced outside of  if statements
-
-        static void Main(string[] args)
-        {
-
-            RandomizeCharacter();
-            Console.ReadKey(true);
-
-            RandomizeCharacter();
-            Console.ReadKey(true);
-
-            RandomizeCharacter();
-            Console.ReadKey(true);
-
-        }
-
-        //m1
-        static void RandomizeCharacter()
-        {
-            Character player1 = new Archer("PewPew Pointystick");
-            Character player2 = new Orc("Smashie McStabface");
-            Character player3 = new Wizard("Bearddress Zappyfingers");
-
-            Random combatant1 = new Random();
-            Random combatant2 = new Random();
-
-
-            if (combatant1.Next(1, 4) == 1)
-            {
-                //Character attacker = player1;   // was the way i had this coded  prior to trying to access attacker for  check outside of  if statement
-                attacker = player1;
-            }
-
-            if (combatant1.Next(1, 4) == 2)
-            {
-                attacker = player2;
-            }
-
-            if (combatant1.Next(1, 4) == 3)
-            {
-                attacker = player3;
-            }
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"\n {attacker._name} is the attacker this  round");
-            Console.ReadKey(true);
-
-            if (combatant2.Next(1, 4) == 1)
-            {
-                //Character defender = player1;   // was the way i had this coded  prior totrying to access  defender for  check outside of  if statement
-                defender = player1;
-            }
-
-            if (combatant2.Next(1, 4) == 2)
-            {
-                defender = player2;
-            }
-
-            if (combatant2.Next(1, 4) == 3)
-            {
-                defender = player3;
-            }
-
-
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            //Console.WriteLine($"\n {attacker._name} is the attacker this  round");
-            //Console.ReadKey(true);
-            Console.WriteLine($"\n {defender._name} is the defender this  round");
-            Console.ReadKey(true);
-
-        }
-
-        //m2
-        static void ThunderDome()
-        {
-            Console.WriteLine($" {attacker._name} vs {defender._name}");
-            Console.WriteLine("FIGHT\n\n");
-            while (attacker._health > 0 && defender._health > 0)
-            {
-
-                if (attacker._speed >= defender._speed)
-                {
-
-                    Console.WriteLine($"\n Attacker first");
-                    if (defender._health > 0)
-                    {
-                        Console.WriteLine($"\n defender second");
-
-                    }
-                }
-                else
-                {
-                    Console.WriteLine($"\n defender first");
-
-                    if (attacker._health > 0)
-                    {
-                        Console.WriteLine($"\n Attacker second");
-
-                    }
-                }
-                Console.ReadKey(true);
-            }
-
-            string winner = attacker._health > 0 ? attacker._name : defender._name;
-            Console.WriteLine($"{winner} is the  last one  standing...  winner, winner, chicken  dinner.");
-            Console.ReadKey(true);
-        }
-
-        //m3 
-        static void TurnOrder(Character attacker, Character defender)
-        {
-            Console.WriteLine($"\n turn order call  test attacker to strike defender");
-            Console.ReadKey(true);
-        }
-
-
-
-
-    }
-
-
 
     public class Character
     {
@@ -242,7 +116,7 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
             if (rando.Next(0, 100) < 20)
             {
                 Console.ForegroundColor = ConsoleColor.DarkYellow;
-                Console.WriteLine($"{_name} casts a spell to asorbe, empower and reflect Damage  back to attacker");
+                Console.WriteLine($"{_name} casts a spell to asorbe , empower and reflect Damage  back to attacker");
                 int reducedDamage = 0;
                 //base.TakeDamage(reducedDamage);
                 Console.ReadKey(true);
@@ -276,6 +150,150 @@ namespace prog2_ChallBeta_Inheritance_ChrisFrench0259182
 
 
     }
+    internal class Program
+    {
+
+        //static Random combatant1 = new Random(1, 4);
+        //static Random combatant2 = new Random(1, 4);
+        static Character attacker = null; //declares attacker character so it can be referenced outside of  if statements
+        static Character defender = null; //declares defender character so it can be referenced outside of  if statements
+        static Random masterRando = new Random();
+        static void Main(string[] args)
+        {
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+            RandomizeCharacter();
+            Console.ReadKey(true);
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey(true);
+
+        }
+
+        //m1
+        static void RandomizeCharacter()
+        {
+            //Character player1 = new Archer("PewPew Pointystick");
+            //Character player2 = new Orc("Smashie McStabface");
+            //Character player3 = new Wizard("Bearddress Zappyfingers");
+
+            //Random combatant1 = new Random();
+            //Random combatant2 = new Random();
+
+
+            List<Character> roster = new List<Character>
+            {
+                new Archer("PewPew Pointystick"),
+                new Orc("Smashie McStabface"),
+                new Wizard("Bearddress Zappyfingers")
+            };
+
+
+
+
+
+            if (combatant1.Next(1, 4) == 1)
+            {
+                //Character attacker = player1;   // was the way i had this coded  prior to trying to access attacker for  check outside of  if statement
+                attacker = player1;
+            }
+
+            if (combatant1.Next(1, 4) == 2)
+            {
+                attacker = player2;
+            }
+
+            if (combatant1.Next(1, 4) == 3)
+            {
+                attacker = player3;
+            }
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"\n {attacker._name} is the attacker this  round");
+            Console.ReadKey(true);
+
+            if (combatant2.Next(1, 4) == 1)
+            {
+                //Character defender = player1;   // was the way i had this coded  prior totrying to access  defender for  check outside of  if statement
+                defender = player1;
+            }
+
+            if (combatant2.Next(1, 4) == 2)
+            {
+                defender = player2;
+            }
+
+            if (combatant2.Next(1, 4) == 3)
+            {
+                defender = player3;
+            }
+
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            //Console.WriteLine($"\n {attacker._name} is the attacker this  round");
+            //Console.ReadKey(true);
+            Console.WriteLine($"\n {defender._name} is the defender this  round");
+            Console.ReadKey(true);
+
+        }
+
+        //m2
+        static void ThunderDome()
+        {
+            Console.WriteLine($" {attacker._name} vs {defender._name}");
+            Console.WriteLine("FIGHT\n\n");
+            while (attacker._health > 0 && defender._health > 0)
+            {
+
+                if (attacker._speed >= defender._speed)
+                {
+                    attacker.Attack(defender);
+                    if (defender._health > 0) defender.Attack(attacker);
+                    // Console.WriteLine($"\n Attacker first");
+                    //if (defender._health > 0)
+                    //{
+                    //  // Console.WriteLine($"\n defender second");
+
+                    //}
+                }
+                else
+                {
+
+                    defender.Attack(attacker);
+                    if (attacker._health > 0) attacker.Attack(defender);
+                    // Console.WriteLine($"\n defender first");
+
+                    //if (attacker._health > 0)
+                    //{
+                    //  //  Console.WriteLine($"\n Attacker second");
+
+                    //}
+                }
+                Console.ReadKey(true);
+            }
+
+            string winner = attacker._health > 0 ? attacker._name : defender._name;
+            Console.WriteLine($"{winner} is the  last one  standing...  winner, winner, chicken  dinner.");
+            Console.ReadKey(true);
+        }
+
+        ////m3 
+        //static void TurnOrder(Character attacker, Character defender)
+        //{
+        //    Console.WriteLine($"\n turn order call  test attacker to strike defender");
+        //    Console.ReadKey(true);
+        //}
+
+
+
+
+    }
+
+
 
 
 
